@@ -7,16 +7,18 @@ function validateSyntax() {
     if (!input.startsWith(prefix)) {
         result = "Invalid Syntax";
     } else {
-        let petDateStr = input.substring(prefix.length, dateLength);
+        let petDateStr = input.substring(prefix.length, prefix.length + dateLength);
         let petDateNum = Number(petDateStr);
 
-        if (isNaN(petDateNum) || petDateStr.length !== dateLength) {
+        if (isNaN(petDateNum) || petDateStr.length !== dateLength || !/^\d+$/.test(petDateStr)) {
             result = "Invalid Syntax";
         } else {
-            let petName = input.substr(prefix.length + dateLength);
-
+            let petName = input.substring(prefix.length + dateLength);
+        
             if (petName.length < 1) {
                 result = "Invalid Syntax";
+            } else {
+                result = "Valid Syntax";
             }
         }
     }
