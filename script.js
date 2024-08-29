@@ -12,6 +12,12 @@ function validateSyntax() {
 
         if (isNaN(petDateNum) || petDateStr.length !== dateLength) {
             result = "Invalid Syntax";
+        } else {
+            let petName = input.substr(prefix.length + dateLength);
+
+            if (petName.length < 1) {
+                result = "Invalid Syntax";
+            }
         }
     }
 
