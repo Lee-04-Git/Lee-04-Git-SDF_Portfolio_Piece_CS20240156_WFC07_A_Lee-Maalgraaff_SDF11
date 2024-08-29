@@ -1,12 +1,18 @@
 function validateSyntax() {
     let input = document.getElementById('petInput').value;
-    // Validation logic goes here
     let result = ''; // Placeholder for validation result
+    const prefix = "pet_";
+    const dateLength = 4; 
 
-    // TODO: Write your validation logic here
-        // Check if input starts with 'pet_' and followed by alphanumeric characters
+    if (!input.startsWith(prefix)) {
+        result = "Invalid Syntax";
+    } else {
+        let petDateStr = input.substring(prefix.length, dateLength);
+        let petDateNum = Number(petDateStr);
+    }
 
-            document.getElementById('result').innerText = result;
+    document.getElementById('result').innerText = result;    
+         
 }
 
 
