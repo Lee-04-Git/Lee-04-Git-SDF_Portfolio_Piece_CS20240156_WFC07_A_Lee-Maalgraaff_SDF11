@@ -9,6 +9,10 @@ function validateSyntax() {
     } else {
         let petDateStr = input.substring(prefix.length, dateLength);
         let petDateNum = Number(petDateStr);
+
+        if (isNaN(petDateNum) || petDateStr.length !== dateLength) {
+            result = "Invalid Syntax";
+        }
     }
 
     document.getElementById('result').innerText = result;    
